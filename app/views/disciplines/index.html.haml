@@ -1,0 +1,29 @@
+%h1 Предметы
+
+%table.table.table-stripped
+  %thead
+    %tr
+      %th Название
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @disciplines.each do |discipline|
+      %tr
+        %td= discipline.name
+        %td= link_to 'Показать', discipline
+        %td
+          = link_to  edit_discipline_path(discipline) do
+            %i.fa.fa-pencil
+            Редактировать
+        %td
+          = link_to discipline, :method => :delete, :data => { :confirm => 'Вы уверены?' } do
+            %i.fa.fa-trash-o
+            Удалить
+
+%br
+
+= link_to new_discipline_path do
+  %i.fa.fa-plus
+  Добавить предмет
