@@ -1,0 +1,12 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{:data => {:toggle => "collapse", :target => "#menu_collapse"}}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand Asking
+    .collapse.navbar-collapse#menu_collapse
+      %ul.nav.navbar-nav
+        %li= link_to "Предметы", :disciplines
