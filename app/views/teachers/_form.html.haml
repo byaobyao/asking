@@ -1,0 +1,28 @@
+= form_for @teacher, html: { class: 'form-horizontal' } do |f|
+  - if @teacher.errors.any?
+    .alert.alert-danger
+      %strong= "#{pluralize(@teacher.errors.count, "error")} prohibited this teacher from being saved:"
+      %ul
+        - @teacher.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :first_name, class: 'col-sm-2 control-label'
+    .col-sm-10= f.text_field :first_name, class: 'form-control'
+  .form-group
+    = f.label :second_name, class: 'col-sm-2 control-label'
+    .col-sm-10= f.text_field :second_name, class: 'form-control'
+  .form-group
+    = f.label :third_name, class: 'col-sm-2 control-label'
+    .col-sm-10= f.text_field :third_name, class: 'form-control'
+  = hidden_field_tag "teacher[discipline_ids][]", nil
+  - Discipline.all.each do |d|
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        .checkbox
+          %label
+            = check_box_tag "teacher[discipline_ids][]", d.id, @teacher.discipline_ids.include?(d.id), id: dom_id(d)
+            = "#{d.name}"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Save', class: "btn btn-primary"
