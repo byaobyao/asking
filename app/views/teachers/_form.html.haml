@@ -7,16 +7,16 @@
           %li= msg
 
   .form-group
+    = f.label :third_name, class: 'col-sm-2 control-label'
+    .col-sm-10= f.text_field :third_name, class: 'form-control'
+  .form-group
     = f.label :first_name, class: 'col-sm-2 control-label'
     .col-sm-10= f.text_field :first_name, class: 'form-control'
   .form-group
     = f.label :second_name, class: 'col-sm-2 control-label'
     .col-sm-10= f.text_field :second_name, class: 'form-control'
-  .form-group
-    = f.label :third_name, class: 'col-sm-2 control-label'
-    .col-sm-10= f.text_field :third_name, class: 'form-control'
   = hidden_field_tag "teacher[discipline_ids][]", nil
-  - Discipline.all.each do |d|
+  - Discipline.order(:name).each do |d|
     .form-group
       .col-sm-offset-2.col-sm-10
         .checkbox
