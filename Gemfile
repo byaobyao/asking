@@ -10,6 +10,8 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 
+gem 'bootstrap-wysihtml5-rails'
+
 gem 'haml-rails'
 
 gem 'haml', '~> 4.0.6'

@@ -6,6 +6,7 @@
       %th Название
       %th Предмет
       %th Класс
+      %th Вопросы
       %th
       %th
       %th
@@ -16,6 +17,7 @@
         %td= test.name
         %td= test.discipline.name
         %td= test.grade
+        %td= test.questions.count
         %td= link_to 'Show', test
         %td= link_to 'Edit', edit_test_path(test)
         %td= link_to 'Destroy', test, :method => :delete, :data => { :confirm => 'Are you sure?' }

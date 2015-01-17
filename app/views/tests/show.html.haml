@@ -1,11 +1,33 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @test.name
-%p
-  %b Discipline:
-  = @test.discipline_id
+%h1 #{@test.name} (#{@test.discipline.name})
+
+%h2 Вопросы
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Текст
+      %th
+      %th
+      %th
+
+  %tbody
+    - @test.questions.each do |q|
+      %tr
+        %td= q.text
+        %td
+          = link_to edit_test_question_path(@test, q) do
+            %i.fa.fa-pencil
+            Редактировать
+        %td
+          = link_to [@test, q], method: :delete, data: { confirm: 'Вы уверены?'} do
+            %i.fa.fa-trash-o
+            Удалить
+
+= link_to new_test_question_path(@test) do
+  %i.fa.fa-plus
+  Добавить вопрос
 
 = link_to 'Edit', edit_test_path(@test)
 \|
