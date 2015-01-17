@@ -1,0 +1,9 @@
+%h1 Тестирование
+
+= form_for :testing do |f|
+  .form-group
+    %label Выберите предмет
+    = f.collection_select :discipline_id, Discipline.order(:name), :id, :name, {}, {class: 'form-control'}
+
+  .form-group
+    =f.submit 'Начать тест', class: 'btn btn-primary'

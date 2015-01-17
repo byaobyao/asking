@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'testing#home'
+
   resources :tests
 
   resources :teachers
