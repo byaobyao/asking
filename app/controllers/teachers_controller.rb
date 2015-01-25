@@ -69,6 +69,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:first_name, :second_name, :third_name, { :discipline_ids => [] })
+      params.require(:teacher).permit(:first_name, :second_name, :third_name, :login, :password, :password_confirmation, { :discipline_ids => [] })
     end
 end
